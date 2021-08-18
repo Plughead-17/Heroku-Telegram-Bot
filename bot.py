@@ -68,5 +68,4 @@ def func():
                     first_work_time = False
 
         ###############################################
-
         time.sleep(3)
