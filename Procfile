@@ -1,1 +1,1 @@
-worker: python3.8 main.py $PORT
+worker: python main.py $PORT
