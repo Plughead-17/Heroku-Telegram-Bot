@@ -1,5 +1,3 @@
-import json
-
 import misc
 from bs4 import BeautifulSoup
 
