@@ -57,7 +57,7 @@ def func():
                     "chat_id": temp["result"][-1]["message"]["chat"]["id"],
                     "text": temp["result"][-1]["message"]["text"]
                 }
-             #   print(data)
+                print(data)
                 if first_work_time == False:
                     if data["text"] == "/test_key":
                         page = network.get_page_confirm(misc.URL)
