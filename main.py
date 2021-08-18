@@ -1,11 +1,7 @@
-import misc
-############
 import bot
-import network
-# import filesystem
-import parser
-from bs4 import BeautifulSoup
-import json
+
+bad_symbols = "!@<>|\?"
+
 ##########################################################################
 #       Main
 def main():
