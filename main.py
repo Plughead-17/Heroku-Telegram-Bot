@@ -6,7 +6,7 @@ bad_symbols = "!@<>|\?"
 def Test():
 #    page = network.get_page_confirm(misc.URL)
 #    items = parser.get_content(page)
-    bot.sendmessagebot(str(items))
+    bot.sendmessagebot("hi")
 
 
 ##########################################################################
@@ -18,8 +18,9 @@ def main():
     items = bot.getmessagebot()
     print(items)
 
+    Test()
 
-    bot.RunRunFastUCan()
+#    bot.RunRunFastUCan()
 
 ##########################################################################
 if __name__ == "__main__":
