@@ -80,7 +80,7 @@ def RunRunFastUCan():
                 return 0
         # ----------------------------------------------
         else:
-            filesystem.msg(temp)
+            #filesystem.msg(temp)
             if len(temp["result"]) == 0:
                 print("break")
                 break

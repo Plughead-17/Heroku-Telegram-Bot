@@ -14,9 +14,9 @@ def main():
     print("Start APP!")
 
 #    items = bot.getmessagebot()
-#    Test()
+    Test()
 
-    #bot.RunRunFastUCan()
+    bot.RunRunFastUCan()
 
 ##########################################################################
 if __name__ == "__main__":
