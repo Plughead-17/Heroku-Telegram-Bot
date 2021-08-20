@@ -9,7 +9,6 @@ def main():
 #    items = parser.get_content(page)
 #    bot.sendmessagebot(str(items))
     print("RUN APP!")
-    bot.sendmessagebot("Run")
     bot.func()
 
 ##########################################################################
