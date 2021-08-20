@@ -1,37 +1,14 @@
 import requests
 import time
-
-###########################################################################
-TELEGRAM_TOKEN = "1822171895:AAGizcD8jcNdWrKgAmKhzSsqUZyo-n07kEU"
-
-URL = "https://kurs.onliner.by/"
-####################
-HEADERS = {"user-agent": "Mozilla/5.0 (Windows NT 10; Win64; x64; rv:84.0) Gecko/20100101 Firefox/84.0",
-           "Accept": '*/*'}
-
-
-###########################################################################
-REQUESTS_BOT = "https://api.telegram.org/bot" + TELEGRAM_TOKEN
-CHATID = "841721020"
-SEND_MESSAGE = REQUESTS_BOT + "/sendmessage?chat_id=" + CHATID + "&text="
-GET_ME = REQUESTS_BOT + "/getMe"
-UPDATE = REQUESTS_BOT + "/getUpdates"
-######################################
-##########################################################################
-#       Получить старницу с сайта
-def get_html(url, params = None):   # Запрос на сайт
-    return requests.get(url, headers = HEADERS, params = params)
-
-##########################################################################
-#       Проаерить статус коды
-def get_page_confirm(url):   # Запрос на сайт
-    page = get_html(url)
-    if page.status_code == 404:
-        return 0
-    return page
-#######################################
-
+import misc
+import network
+import json
 from bs4 import BeautifulSoup
+# RunRunFastUCan
+
+class Rabbit:
+    pass
+
 
 ########################
 #       Get Soup
@@ -63,7 +40,7 @@ def get_content(page):
 ###########################################################################
 #       Сообщение от бота
 def getmessagebot():
-    page = get_html(UPDATE)
+    page = network.get_html(misc.UPDATE)
     if page.status_code == 200:
         return page.json()
     if page.status_code == 404:
@@ -73,10 +50,10 @@ def getmessagebot():
 ##########################################################################
 #       Сообщеие боту
 def sendmessagebot(message = "Wait a second, please"):
-    page = get_html(SEND_MESSAGE + message)
+    page = network.get_html(misc.SEND_MESSAGE + message)
     return page
 
-def func():
+def RunRunFastUCan():
 
     i = 50
     data = {
@@ -98,22 +75,25 @@ def func():
             if temp["result"] == 0:
                 break
             if temp["result"][-1]["update_id"] != data["update_id"]:
+               data = {
+                   "update_id": temp["result"][-1]["update_id"],
+                   "message_id": temp["result"][-1]["message"]["message_id"],
+                   "chat_id": temp["result"][-1]["message"]["chat"]["id"],
+                   "text": temp["result"][-1]["message"]["text"]
+               }
+            if first_work_time == False:
+                temp1(temp)
 
-                data = {
-                    "update_id": temp["result"][-1]["update_id"],
-                    "message_id": temp["result"][-1]["message"]["message_id"],
-                    "chat_id": temp["result"][-1]["message"]["chat"]["id"],
-                    "text": temp["result"][-1]["message"]["text"]
-                }
-                print(data)
-                if first_work_time == False:
-                    if data["text"] == "/test_key":
-                        page = get_page_confirm(URL)
-                        items = get_content(page)
-                        sendmessagebot(str(items[0])+ "\nПокупка - " + str(items[2])+ "\nПродажа - " +items[1])
-#                        sendmessagebot("https://baraholka.onliner.by/viewtopic.php?t=24715013")
-                else:
-                    first_work_time = False
+def temp1(data):
+    if data["text"] == "/test_key":
+        page = network.get_page_confirm(misc.URL)
+        items = get_content(page)
+        item = str(items[0]) + "\nПокупка - " + str(items[2]) + "\nПродажа - " + str(items[1])
+        sendmessagebot(item)
+    else:
+        return False
 
-        ###############################################
-        time.sleep(3)
+    ###############################################
+
+
+time.sleep(3)
