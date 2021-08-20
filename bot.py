@@ -55,7 +55,7 @@ def sendmessagebot(message = "Wait a second, please"):
 
 def RunRunFastUCan():
 
-    i = 50
+    i = 500
     data = {
         "update_id": "---"
     }
@@ -66,7 +66,9 @@ def RunRunFastUCan():
         ###############################################
         temp = getmessagebot()
         # ----------------------------------------------
+        temp = 0
         if temp == 0:
+            print("Test" + str(i))
             i -= 1
             if i == 0:
                 return 0
@@ -83,7 +85,7 @@ def RunRunFastUCan():
                }
             if first_work_time == False:
                 temp1(temp)
-
+        time.sleep(3)
 def temp1(data):
     if data["text"] == "/test_key":
         page = network.get_page_confirm(misc.URL)
@@ -94,6 +96,4 @@ def temp1(data):
         return False
 
     ###############################################
-
-
-time.sleep(3)
+    time.sleep(3)

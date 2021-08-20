@@ -1,7 +1,6 @@
 import bot
 import misc
 import network
-bad_symbols = "!@<>|\?"
 
 def Test():
 #    page = network.get_page_confirm(misc.URL)
@@ -18,9 +17,9 @@ def main():
     items = bot.getmessagebot()
     print(items)
 
-    Test()
+#    Test()
 
-#    bot.RunRunFastUCan()
+    bot.RunRunFastUCan()
 
 ##########################################################################
 if __name__ == "__main__":
