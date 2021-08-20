@@ -13,3 +13,5 @@ GET_ME = REQUESTS_BOT + "/getMe"
 UPDATE = REQUESTS_BOT + "/getUpdates"
 ###########################################################################
 URL = "https://kurs.onliner.by/"
+
+LOG_FILE = "log.log"

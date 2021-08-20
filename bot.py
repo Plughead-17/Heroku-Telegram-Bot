@@ -4,6 +4,8 @@ import misc
 import network
 import json
 from bs4 import BeautifulSoup
+import filesystem
+
 # RunRunFastUCan
 
 class Rabbit:
@@ -53,20 +55,24 @@ def sendmessagebot(message = "Wait a second, please"):
     page = network.get_html(misc.SEND_MESSAGE + message)
     return page
 
+
+
 def RunRunFastUCan():
 
-    i = 500
+    i = 50
     data = {
         "update_id": "---"
     }
-    first_work_time = True
-
+    first_time = True
 
     while True:
         ###############################################
         temp = getmessagebot()
         # ----------------------------------------------
-        temp = 0
+
+        if temp["ok"] == "True":
+            print(temp["ok"])
+
         if temp == 0:
             print("Test" + str(i))
             i -= 1
@@ -74,7 +80,9 @@ def RunRunFastUCan():
                 return 0
         # ----------------------------------------------
         else:
-            if temp["result"] == 0:
+            filesystem.msg(temp)
+            if len(temp["result"]) == 0:
+                print("break")
                 break
             if temp["result"][-1]["update_id"] != data["update_id"]:
                data = {
@@ -83,9 +91,22 @@ def RunRunFastUCan():
                    "chat_id": temp["result"][-1]["message"]["chat"]["id"],
                    "text": temp["result"][-1]["message"]["text"]
                }
-            if first_work_time == False:
-                temp1(temp)
+#            if first_time == False:
+#                temp1(temp)
+##################################################################
+        print()
+        print("　　　　　 |＞　 フ ")
+        print("　　　　　|  0 0  |")
+        print("　 　　　／ミ x_ 彡")
+        print("　　 　 /　　　 　 |")
+        print("　　　 /　 ヽ　　 ﾉ")
+        print("　／￣|　　 |　|　|")
+        print("　| (￣ヽ＿_ヽ_)_)")
+        print("　＼二つ")
+##################################################################
         time.sleep(3)
+
+###########################################################
 def temp1(data):
     if data["text"] == "/test_key":
         page = network.get_page_confirm(misc.URL)

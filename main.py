@@ -11,15 +11,12 @@ def Test():
 ##########################################################################
 #       Main
 def main():
+    print("Start APP!")
 
-    print("RUN APP!")
-
-    items = bot.getmessagebot()
-    print(items)
-
+#    items = bot.getmessagebot()
 #    Test()
 
-    bot.RunRunFastUCan()
+    #bot.RunRunFastUCan()
 
 ##########################################################################
 if __name__ == "__main__":
