@@ -13,9 +13,6 @@ def Test():
 def main():
     print("Start APP!")
 
-#    items = bot.getmessagebot()
-#    Test()
-
     bot.RunRunFastUCan()
 
 ##########################################################################
