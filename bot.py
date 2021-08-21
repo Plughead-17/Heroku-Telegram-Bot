@@ -74,7 +74,6 @@ def RunRunFastUCan():
 
         # ----------------------------------------------
         # ----------------------------------------------
-
         if temp == 0:
             i -= 1
             if i == 0:
@@ -97,9 +96,10 @@ def RunRunFastUCan():
                 if first_time == True:
                     first_time = False
                 else:
-                    if data["text"] == "/test_key":
+                    if data["text"] == "/usd":
                         send_data()
-
+                    if data["text"] == "/catsme":
+                        cat_1()
         time.sleep(3)
 
 ###########################################################
@@ -114,13 +114,6 @@ def send_data():
 #
 def cat_1():
 ##################################################################
-    print()
-    print("　　　　　 |＞　 フ ")
-    print("　　　　　|  0 0  |")
-    print("　 　　　／ミ x_ 彡")
-    print("　　 　 /　　　 　 |")
-    print("　　　 /　 ヽ　　 ﾉ")
-    print("　／￣|　　 |　|　|")
-    print("　| (￣ヽ＿_ヽ_)_)")
-    print("　＼二つ")
+    item = "　　　　　 |＞　 フ \n　　　　　|  0 0  |\n　 　　　／ミ x_ 彡\n　　 　 /　　　 　 |\n　　　 /　 ヽ　　 ﾉ\n　／￣|　　 |　|　|\n　| (￣ヽ＿_ヽ_)_)\n　＼二つ"
+    sendmessagebot(item)
 ##################################################################
