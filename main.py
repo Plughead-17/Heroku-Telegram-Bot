@@ -14,7 +14,7 @@ def main():
     print("Start APP!")
 
 #    items = bot.getmessagebot()
-    Test()
+#    Test()
 
     bot.RunRunFastUCan()
 

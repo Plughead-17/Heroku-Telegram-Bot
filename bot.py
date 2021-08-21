@@ -5,7 +5,7 @@ import network
 import json
 from bs4 import BeautifulSoup
 import filesystem
-
+import json
 # RunRunFastUCan
 
 class Rabbit:
@@ -40,7 +40,7 @@ def get_content(page):
 # 'ул. Некрасова, 3а (магазин "Виталюр")'
 
 ###########################################################################
-#       Сообщение от бота
+#       Message from bot
 def getmessagebot():
     page = network.get_html(misc.UPDATE)
     if page.status_code == 200:
@@ -50,71 +50,77 @@ def getmessagebot():
     return 0
 
 ##########################################################################
-#       Сообщеие боту
+#       Send message to bot
 def sendmessagebot(message = "Wait a second, please"):
     page = network.get_html(misc.SEND_MESSAGE + message)
     return page
 
 
-
+###########################################################
+#
 def RunRunFastUCan():
-
     i = 50
+    first_time = True
     data = {
         "update_id": "---"
     }
-    first_time = True
-
+#-----------------------------------------------------
     while True:
         ###############################################
         temp = getmessagebot()
         # ----------------------------------------------
+#        if temp["ok"] == True:
+#            print("\n" + str(temp["ok"]) + "Test mass\n")
 
-        if temp["ok"] == "True":
-            print(temp["ok"])
+        # ----------------------------------------------
+        # ----------------------------------------------
 
         if temp == 0:
-            print("Test" + str(i))
             i -= 1
             if i == 0:
+                print("End timeout")
                 return 0
+            time.sleep(3)
         # ----------------------------------------------
+        if len(temp["result"]) == 0:
+            print("No messages.")
         else:
-            #filesystem.msg(temp)
-            if len(temp["result"]) == 0:
-                print("break")
-                break
+
             if temp["result"][-1]["update_id"] != data["update_id"]:
-               data = {
-                   "update_id": temp["result"][-1]["update_id"],
-                   "message_id": temp["result"][-1]["message"]["message_id"],
-                   "chat_id": temp["result"][-1]["message"]["chat"]["id"],
-                   "text": temp["result"][-1]["message"]["text"]
-               }
-#            if first_time == False:
-#                temp1(temp)
-##################################################################
-        print()
-        print("　　　　　 |＞　 フ ")
-        print("　　　　　|  0 0  |")
-        print("　 　　　／ミ x_ 彡")
-        print("　　 　 /　　　 　 |")
-        print("　　　 /　 ヽ　　 ﾉ")
-        print("　／￣|　　 |　|　|")
-        print("　| (￣ヽ＿_ヽ_)_)")
-        print("　＼二つ")
-##################################################################
+                data = {
+                    "update_id": temp["result"][-1]["update_id"],
+                    "message_id": temp["result"][-1]["message"]["message_id"],
+                    "chat_id": temp["result"][-1]["message"]["chat"]["id"],
+                    "date": temp["result"][-1]["message"]["date"],
+                    "text": temp["result"][-1]["message"]["text"]
+                }
+                if first_time == True:
+                    first_time = False
+                else:
+                    if data["text"] == "/test_key":
+                        send_data()
+
         time.sleep(3)
 
 ###########################################################
-def temp1(data):
-    if data["text"] == "/test_key":
-        page = network.get_page_confirm(misc.URL)
-        items = get_content(page)
-        item = str(items[0]) + "\nПокупка - " + str(items[2]) + "\nПродажа - " + str(items[1])
-        sendmessagebot(item)
-    else:
-        return False
+#
+def send_data():
+    page = network.get_page_confirm(misc.URL)
+    items = get_content(page)
+    item = str(items[0]) + "\nПокупка - " + str(items[2]) + "\nПродажа - " + str(items[1])
+    sendmessagebot(item)
 
-    ###############################################
-    time.sleep(3)
+###########################################################
+#
+def cat_1():
+##################################################################
+    print()
+    print("　　　　　 |＞　 フ ")
+    print("　　　　　|  0 0  |")
+    print("　 　　　／ミ x_ 彡")
+    print("　　 　 /　　　 　 |")
+    print("　　　 /　 ヽ　　 ﾉ")
+    print("　／￣|　　 |　|　|")
+    print("　| (￣ヽ＿_ヽ_)_)")
+    print("　＼二つ")
+##################################################################
