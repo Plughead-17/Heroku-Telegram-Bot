@@ -3,7 +3,7 @@ import misc
 import network
 import telebot
 import os
-from flask import Flask, request
+from flask import Flask, request, render_template
 
 server = Flask(__name__)
 
@@ -52,12 +52,12 @@ def webhook():
     print("def webhook():")
     bot_1.remove_webhook()
     bot_1.send_wbhook(url = URL_APP)
-    return '|', 200
+    return render_template('index.html'), '|', 200
 
-@server.route('/')
-def hello_world():
-    print("\n\n\n\ndef hello_world():\n\n\n")
-    return "Hello World!"
+#@server.route('/')
+#def hello_world():
+#    print("\n\n\n\ndef hello_world():\n\n\n")
+#    return render_template('index.html')
 
 ##########################################################################
 #       Main
