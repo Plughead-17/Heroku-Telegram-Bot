@@ -54,6 +54,10 @@ def webhook():
     bot_1.send_wbhook(url = URL_APP)
     return '|', 200
 
+@server.route('/')
+def hello_world():
+    return "Hello World!"
+
 ##########################################################################
 #       Main
 def main():
