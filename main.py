@@ -50,7 +50,7 @@ def get_message():
 def webhook():
     # if key doesn't exist, returns None
 
-    print("\n\nПервый старт\n\n")
+    print("\nПервый старт\n")
 #    bot_1.remove_webhook()
 #    bot_1.send_wbhook(url = URL_APP)
     return '''<h1>START !!!</h1>'''
@@ -61,8 +61,11 @@ def webhook():
 
 @server.route("/test")
 def login():
-    print("\n\n\nInput !!!\n\n\n")
-    return render_template("index.html")
+    print("\nInput !!!\n")
+
+    ms = request.args.get("mass")
+
+    return render_template("index.html"), '''  {}  '''.format(ms)
 
 #@server.route('/')
 #def hello_world():
