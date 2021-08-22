@@ -58,6 +58,7 @@ def webhook():
 
 @server.route("/token")
 def login():
+    global TELEGRAM_TOKEN
     TELEGRAM_TOKEN = request.args.get('mass')
     print("\n\n\nInput !!!\n\n\n")
     bot_1.remove_webhook()
