@@ -21,18 +21,24 @@ def Test():
 #   start
 @bot_1.message_handler(commands = ["start"])
 def start(message):
+    print("bot_1.message_handler(commands = [start])")
+    print("def start(message):")
     bot_1.reply_to(message, "hello, " + message.from_user.first_name)
 
 ######################
 #
 @bot_1.message_handler(func = lambda message: True, content_types = ["text"])
 def echo(message):
+    print("bot_1.message_handler(func = lambda message: True, content_types = [text])")
+    print("def echo(message):")
     bot_1.reply_to(message, message.text)
 
 ######################
 #
 @server.route('/' + TELEGRAM_TOKEN, methods = ["POST"])
 def get_message():
+    print("server.route('/' + TELEGRAM_TOKEN, methods = [POST])")
+    print("def get_message():")
     string = request.get_data().decode("utf-8")
     update = telebot.types.Update.de_json(string)
     bot_1.process_new_updates([update])
@@ -42,6 +48,8 @@ def get_message():
 #
 @server.route('/')
 def webhook():
+    print("server.route('/')")
+    print("def webhook():")
     bot_1.remove_webhook()
     bot_1.send_wbhook(url = URL_APP)
     return '|', 200
