@@ -50,28 +50,19 @@ def get_message():
 def webhook():
     # if key doesn't exist, returns None
 
-    print("\n\n\nПервый старт\n\n\n")
+    print("\n\nПервый старт\n\n")
 #    bot_1.remove_webhook()
 #    bot_1.send_wbhook(url = URL_APP)
-    return '''<h1>The language value is: {}</h1>'''.format()
+    return '''<h1>START !!!</h1>'''
+
+
 #       /token?mass=
 
-@server.route("/test", methods=['GET', 'POST'])
+
+@server.route("/test")
 def login():
-    global TELEGRAM_TOKEN
-    global bot_1
-    TELEGRAM_TOKEN = request.args.get('mass')
-    bot_1 = telebot.TeleBot(TELEGRAM_TOKEN)
     print("\n\n\nInput !!!\n\n\n")
-    bot_1.remove_webhook()
-    bot_1.send_wbhook(url = URL_APP)
-    return '''
-                  <form method="POST">
-                      <div><label>Language: <input type="text" name="language"></label></div>
-                      <div><label>Framework: <input type="text" name="framework"></label></div>
-                      <input type="submit" value="Submit">
-                  </form>'''
-#    return render_template('index.html'), '|', 200
+    return render_template("index.html")
 
 #@server.route('/')
 #def hello_world():
