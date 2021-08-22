@@ -2,7 +2,7 @@ HEADERS = {"user-agent": "Mozilla/5.0 (Windows NT 10; Win64; x64; rv:84.0) Gecko
            "Accept": '*/*'}
 
 TELEGRAM_TOKEN = "1822171895:AAGizcD8jcNdWrKgAmKhzSsqUZyo-n07kEU"
-
+URL_APP = f"https://telegram-bot-pyhon-test0001.herokuapp.com/{TELEGRAM_TOKEN}"
 bad_symbols = "!@<>|\?"
 
 ###########################################################################

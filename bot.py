@@ -6,12 +6,14 @@ import json
 from bs4 import BeautifulSoup
 import filesystem
 import json
+import telebot
+
 # RunRunFastUCan
 
 class Rabbit:
     pass
 
-
+bot_1 = telebot.TeleBot(misc.TELEGRAM_TOKEN)
 ########################
 #       Get Soup
 def get_soup(page):
