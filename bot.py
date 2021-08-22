@@ -124,3 +124,9 @@ def onliner_parce():
     contents = get_soup(page)
     items = contents.find(class_="ba-tbl-list__table")
     return items
+
+def autoria():
+    urlria = "https://auto.ria.com/content/news/calculateAuto/?category=1&fuel=1&origin=3&age=gt15&price=5000&engine=6000&currencyId=2&langId=2"
+    page = network.get_page_confirm(urlria)
+    return page.json()
+# https://auto.ria.com/content/news/calculateAuto/?category=1&fuel=1&origin=3&age=gt15&price=5000&engine=6000&currencyId=2&langId=2

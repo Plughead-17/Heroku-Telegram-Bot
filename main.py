@@ -1,4 +1,5 @@
 import bot
+import filesystem
 import misc
 import network
 import telebot
@@ -73,11 +74,37 @@ def test():
 def onliner():
     return bot.onliner_parce()
 
+@server.route("/autoria")
+def autoria():
+    temp = bot.autoria()
+    return '''
+    Ввозная пошлина --------- {}
+    акцизный сбор ----------- {}
+    НДС --------------------- {}
+    Стоимость зарубежом ----- {}
+    Растаможка -------------- {}
+    Стоимость с разтоможкой - {}
+    '''.format(temp["oldPrices"]["importDuty"],temp["oldPrices"]["exciseDuty"],temp["oldPrices"]["VAT"],temp["oldPrices"]["bondedCarCost"],temp["oldPrices"]["customsClearanceCosts"],temp["oldPrices"]["clearedCarsCost"])
+
+#1    "oldPrices": {
+#2    "importDuty": 275,		// Ввозная пошлина
+#3    "exciseDuty": 9000,	// акцизный сбор
+#4    "VAT": 2855,		// НДС
+#5    "bondedCarCost": 5000,	// Стоимость зарубежом
+#6    "customsClearanceCosts": 12130,	// Растаможка
+#7    "clearedCarsCost": 17130	// Стоимость с разтоможкой
+
 ##########################################################################
 #       Main
 def main():
     print("Start APP!")
-    server.run(host = "0.0.0.0", port = int(os.environ.get("PORT", 5000)))
+#    server.run(host = "0.0.0.0", port = int(os.environ.get("PORT", 5000)))
+
+    items = bot.autoria()
+    filesystem.jinfile(items, "autoria.json")
+    for item in items["oldPrices"]:
+        print(item)
+
 #    bot.RunRunFastUCan()
 
 ##########################################################################
