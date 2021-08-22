@@ -56,6 +56,7 @@ def webhook():
 
 @server.route('/')
 def hello_world():
+    print("\n\n\n\ndef hello_world():\n\n\n")
     return "Hello World!"
 
 ##########################################################################
