@@ -48,24 +48,20 @@ def get_message():
 #
 @server.route('/')
 def webhook():
-    # if key doesn't exist, returns None
-
     print("\nПервый старт\n")
-#    bot_1.remove_webhook()
-#    bot_1.send_wbhook(url = URL_APP)
-    return '''<h1>START !!!</h1>'''
-
-
+    return '''<h1>/token?mass=</h1>'''
 #       /token?mass=
 
-
 @server.route("/test")
-def login():
+def test():
     print("\nInput !!!\n")
 
     ms = request.args.get("mass")
-    render_template("index.html")
-    return '''  {}  '''.format(ms)
+    if ms == "usd":
+        ms = bot.get_content()
+        return '''  {}  
+                    Покупка = {}
+                    Продажа = {}'''.format(ms[0], ms[1], ms[2])
 
 #@server.route('/')
 #def hello_world():
