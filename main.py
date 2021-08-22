@@ -7,7 +7,10 @@ from flask import Flask, request
 
 server = Flask(__name__)
 
-bot_1 = telebot.TeleBot(misc.TELEGRAM_TOKEN)
+TELEGRAM_TOKEN = "1822171895:AAGizcD8jcNdWrKgAmKhzSsqUZyo-n07kEU"
+URL_APP = f"https://telegram-bot-pyhon-test0001.herokuapp.com/{TELEGRAM_TOKEN}"
+
+bot_1 = telebot.TeleBot(TELEGRAM_TOKEN)
 
 def Test():
 #    page = network.get_page_confirm(misc.URL)
@@ -28,7 +31,7 @@ def echo(message):
 
 ######################
 #
-@server.route('/' + misc.TELEGRAM_TOKEN, methods = ["POST"])
+@server.route('/' + TELEGRAM_TOKEN, methods = ["POST"])
 def get_message():
     string = request.get_data().decode("utf-8")
     update = telebot.types.Update.de_json(string)
@@ -40,7 +43,7 @@ def get_message():
 @server.route('/')
 def webhook():
     bot_1.remove_webhook()
-    bot_1.send_wbhook(url = misc.URL_APP)
+    bot_1.send_wbhook(url = URL_APP)
     return '|', 200
 
 ##########################################################################
