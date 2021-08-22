@@ -58,9 +58,11 @@ def webhook():
 
 @server.route("/token")
 def login():
-    mass = request.args.get('mass')
+    TELEGRAM_TOKEN = request.args.get('mass')
     print("\n\n\nInput !!!\n\n\n")
-    return '''<h1>Token: {}</h1>'''.format(mass)
+    bot_1.remove_webhook()
+    bot_1.send_wbhook(url = URL_APP)
+    return '''<h1>Token: {}</h1>'''.format(TELEGRAM_TOKEN)
 #    return render_template('index.html'), '|', 200
 
 #@server.route('/')
