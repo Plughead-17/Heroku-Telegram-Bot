@@ -13,7 +13,6 @@ import telebot
 class Rabbit:
     pass
 
-bot_1 = telebot.TeleBot(misc.TELEGRAM_TOKEN)
 ########################
 #       Get Soup
 def get_soup(page):

@@ -7,6 +7,7 @@ from flask import Flask, request
 
 server = Flask(__name__)
 
+bot_1 = telebot.TeleBot(misc.TELEGRAM_TOKEN)
 
 def Test():
 #    page = network.get_page_confirm(misc.URL)
@@ -16,15 +17,15 @@ def Test():
 
 ######################
 #   start
-@bot.bot_1.message_handler(commands = ["start"])
+@bot_1.message_handler(commands = ["start"])
 def start(message):
-    bot.bot_1.reply_to(message, "hello, " + message.from_user.first_name)
+    bot_1.reply_to(message, "hello, " + message.from_user.first_name)
 
 ######################
 #
-@bot.bot_1.message_handler(func = lambda message: True, content_types = ["text"])
+@bot_1.message_handler(func = lambda message: True, content_types = ["text"])
 def echo(message):
-    bot.bot_1.reply_to(message, message.text)
+    bot_1.reply_to(message, message.text)
 
 ######################
 #
@@ -32,15 +33,15 @@ def echo(message):
 def get_message():
     string = request.get_data().decode("utf-8")
     update = telebot.types.Update.de_json(string)
-    bot.bot_1.process_new_updates([update])
+    bot_1.process_new_updates([update])
     return '|', 200
 
 ######################
 #
 @server.route('/')
 def webhook():
-    bot.bot_1.remove_webhook()
-    bot.bot_1.send_wbhook(url = misc.URL_APP)
+    bot_1.remove_webhook()
+    bot_1.send_wbhook(url = misc.URL_APP)
     return '|', 200
 
 ##########################################################################
