@@ -53,7 +53,7 @@ def webhook():
     print("\n\n\nПервый старт\n\n\n")
 #    bot_1.remove_webhook()
 #    bot_1.send_wbhook(url = URL_APP)
-    return '''<h1>The language value is: {}</h1>'''
+    return '''<h1>The language value is: {}</h1>'''.format()
 #       /token?mass=
 
 @server.route("/token")
