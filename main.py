@@ -58,7 +58,8 @@ def test():
 
     ms = request.args.get("mass")
     if ms == "usd":
-        ms = bot.get_content()
+        page = network.get_page_confirm(misc.URL)
+        ms = bot.get_content(page)
         return '''  {}  
                     Покупка = {}
                     Продажа = {}'''.format(ms[0], ms[1], ms[2])
