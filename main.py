@@ -64,8 +64,8 @@ def login():
     print("\nInput !!!\n")
 
     ms = request.args.get("mass")
-
-    return render_template("index.html"), '''  {}  '''.format(ms)
+    render_template("index.html")
+    return '''  {}  '''.format(ms)
 
 #@server.route('/')
 #def hello_world():
