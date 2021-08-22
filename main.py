@@ -13,7 +13,7 @@ def Test():
 #    items = parser.get_content(page)
     bot.sendmessagebot("hi")
 ##########################################################################
-@bot.bot_1.message_handler(commands = ["/test_key"])
+@bot.bot_1.message_handler(commands = ["test_key"])
 def start(message):
     bot.bot_1.reply_to(message, "hello, " + message.from_user.first_name)
 
