@@ -69,6 +69,10 @@ def test():
 #    print("\n\n\n\ndef hello_world():\n\n\n")
 #    return render_template('index.html')
 
+@server.route("/onliner")
+def onliner():
+    return bot.onliner_parce()
+
 ##########################################################################
 #       Main
 def main():

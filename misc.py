@@ -14,5 +14,6 @@ GET_ME = REQUESTS_BOT + "/getMe"
 UPDATE = REQUESTS_BOT + "/getUpdates"
 ###########################################################################
 URL = "https://kurs.onliner.by/"
+PAECE_ONLINER = "https://baraholka.onliner.by/viewforum.php?f=181"
 
 LOG_FILE = "log.log"

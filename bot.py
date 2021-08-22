@@ -118,3 +118,9 @@ def cat_1():
     item = ":　　　　　 |＞　 フ \n:　　　　　|  0 0  |\n:　 　　　／ミ x_ 彡\n:　　 　 /　　　 　 |\n:　　　 /　 ヽ　　 ﾉ\n:　／￣|　　 |　|　|\n:　| (￣ヽ＿_ヽ_)_)\n:　＼二つ"
     sendmessagebot(item)
 ##################################################################
+
+def onliner_parce():
+    page = network.get_page_confirm(misc.PAECE_ONLINER)
+    contents = get_soup(page)
+    items = contents.find(class_="ba-tbl-list__table")
+    return items
