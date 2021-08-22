@@ -78,12 +78,12 @@ def onliner():
 def autoria():
     temp = bot.autoria()
     return '''
-    Ввозная пошлина --------- {}
-    акцизный сбор ----------- {}
-    НДС --------------------- {}
-    Стоимость зарубежом ----- {}
-    Растаможка -------------- {}
-    Стоимость с разтоможкой - {}
+    Ввозная пошлина --------- {}<br>
+    акцизный сбор ----------- {}<br>
+    НДС --------------------- {}<br>
+    Стоимость зарубежом ----- {}<br>
+    Растаможка -------------- {}<br>
+    Стоимость с разтоможкой - {}<br>
     '''.format(temp["oldPrices"]["importDuty"],temp["oldPrices"]["exciseDuty"],temp["oldPrices"]["VAT"],temp["oldPrices"]["bondedCarCost"],temp["oldPrices"]["customsClearanceCosts"],temp["oldPrices"]["clearedCarsCost"])
 
 #1    "oldPrices": {
