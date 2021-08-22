@@ -54,6 +54,11 @@ def webhook():
     bot_1.send_wbhook(url = URL_APP)
     return render_template('templates/index.html'), '|', 200
 
+@server.route("/login")
+def login():
+    print("\n\n\nInput !!!\n\n\n")
+    return '|', 200
+
 #@server.route('/')
 #def hello_world():
 #    print("\n\n\n\ndef hello_world():\n\n\n")
