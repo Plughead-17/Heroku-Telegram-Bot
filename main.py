@@ -52,7 +52,7 @@ def webhook():
     print("def webhook():")
     bot_1.remove_webhook()
     bot_1.send_wbhook(url = URL_APP)
-    return render_template('index.html'), '|', 200
+    return render_template('templates/index.html'), '|', 200
 
 #@server.route('/')
 #def hello_world():
