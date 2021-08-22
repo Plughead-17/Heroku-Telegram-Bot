@@ -48,8 +48,7 @@ def get_message():
 #
 @server.route('/')
 def webhook():
-    print("server.route('/')")
-    print("def webhook():")
+    print("\n\n\nПервый старт\n\n\n")
 #    bot_1.remove_webhook()
 #    bot_1.send_wbhook(url = URL_APP)
     return render_template('index.html'), '|', 200
@@ -57,7 +56,7 @@ def webhook():
 @server.route("/login")
 def login():
     print("\n\n\nInput !!!\n\n\n")
-    return '|', 200
+    return render_template('index.html'), '|', 200
 
 #@server.route('/')
 #def hello_world():
