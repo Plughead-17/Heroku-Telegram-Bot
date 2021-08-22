@@ -16,7 +16,7 @@ def Test():
 
 ######################
 #   start
-@bot.bot_1.message_handler(commands = ["/start_key"])
+@bot.bot_1.message_handler(commands = ["start"])
 def start(message):
     bot.bot_1.reply_to(message, "hello, " + message.from_user.first_name)
 
@@ -42,6 +42,7 @@ def webhook():
     bot.bot_1.remove_webhook()
     bot.bot_1.send_wbhook(url = misc.URL_APP)
     return '|', 200
+
 ##########################################################################
 #       Main
 def main():
