@@ -14,6 +14,9 @@ def Test():
 #    items = parser.get_content(page)
     bot.sendmessagebot("hi")
 ##########################################################################
+@bot.message_handler(commands=['start'])
+def start(message):
+    bot.reply_to(message, 'Hello, ' + message.from_user.first_name)
 
 ######################
 #   start
