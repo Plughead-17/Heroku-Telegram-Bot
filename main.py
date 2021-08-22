@@ -48,15 +48,20 @@ def get_message():
 #
 @server.route('/')
 def webhook():
+    # if key doesn't exist, returns None
+
     print("\n\n\nПервый старт\n\n\n")
 #    bot_1.remove_webhook()
 #    bot_1.send_wbhook(url = URL_APP)
-    return render_template('index.html'), '|', 200
+    return '''<h1>The language value is: {}</h1>'''
+#       /token?mass=
 
-@server.route("/login")
+@server.route("/token")
 def login():
+    mass = request.args.get('mass')
     print("\n\n\nInput !!!\n\n\n")
-    return render_template('index.html'), '|', 200
+    return '''<h1>Token: {}</h1>'''.format(mass)
+#    return render_template('index.html'), '|', 200
 
 #@server.route('/')
 #def hello_world():
