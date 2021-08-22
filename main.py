@@ -98,12 +98,12 @@ def autoria():
 #       Main
 def main():
     print("Start APP!")
-#    server.run(host = "0.0.0.0", port = int(os.environ.get("PORT", 5000)))
+    server.run(host = "0.0.0.0", port = int(os.environ.get("PORT", 5000)))
 
-    items = bot.autoria()
-    filesystem.jinfile(items, "autoria.json")
-    for item in items["oldPrices"]:
-        print(item)
+#    items = bot.autoria()
+#    filesystem.jinfile(items, "autoria.json")
+#    for item in items["oldPrices"]:
+#        print(item)
 
 #    bot.RunRunFastUCan()
 
