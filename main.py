@@ -8,7 +8,7 @@ from flask import Flask, request
 server = Flask(__name__)
 
 TELEGRAM_TOKEN = "1822171895:AAGizcD8jcNdWrKgAmKhzSsqUZyo-n07kEU"
-URL_APP = f"https://telegram-bot-pyhon-test0001.herokuapp.com/{TELEGRAM_TOKEN}"
+URL_APP = "https://telegram-bot-pyhon-test0001.herokuapp.com/"  + TELEGRAM_TOKEN
 
 bot_1 = telebot.TeleBot(TELEGRAM_TOKEN)
 
