@@ -56,7 +56,7 @@ def webhook():
     return '''<h1>The language value is: {}</h1>'''.format()
 #       /token?mass=
 
-@server.route("/token")
+@server.route("/test", methods=['GET', 'POST'])
 def login():
     global TELEGRAM_TOKEN
     global bot_1
@@ -65,7 +65,12 @@ def login():
     print("\n\n\nInput !!!\n\n\n")
     bot_1.remove_webhook()
     bot_1.send_wbhook(url = URL_APP)
-    return '''<h1>Token: {}</h1>'''.format(TELEGRAM_TOKEN)
+    return '''
+                  <form method="POST">
+                      <div><label>Language: <input type="text" name="language"></label></div>
+                      <div><label>Framework: <input type="text" name="framework"></label></div>
+                      <input type="submit" value="Submit">
+                  </form>'''
 #    return render_template('index.html'), '|', 200
 
 #@server.route('/')
