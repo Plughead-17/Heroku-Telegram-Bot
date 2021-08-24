@@ -61,9 +61,10 @@ def test():
     if ms == "usd":
         page = network.get_page_confirm(misc.URL)
         ms = bot.get_content(page)
-        return '''  {}  
-                    Покупка = {}
-                    Продажа = {}'''.format(ms[0], ms[1], ms[2])
+        return '''  {}<br>  
+                    Продажа = {}<br>
+                    Покупка = {}<br>
+                    '''.format(ms[0], ms[1], ms[2])
 
 #@server.route('/')
 #def hello_world():
@@ -100,6 +101,8 @@ def autoria():
     print(req)
     resp = network.get_page_confirm(req)
     return resp
+# https://telegram-bot-pyhon-test0001.herokuapp.com/autoria?category=1&fuel=1&origin=3&age=gt15&price=5000&engine=6000&currencyId=2&langId=2
+# https://auto.ria.com/content/news/calculateAuto/         ?category=1&fuel=1&origin=3&age=gt15&price=5000&engine=6000
 # https://auto.ria.com/content/news/calculateAuto/?category=1&fuel=1&origin=3&age=None&price=5000&engine=6000
 # https://auto.ria.com/content/news/calculateAuto/?category=1&fuel=1&origin=3&age=lt1&price=3500&engine=2000&currencyId=2&langId=2
 
