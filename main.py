@@ -13,10 +13,10 @@ URL_APP = "https://telegram-bot-pyhon-test0001.herokuapp.com/"
 
 bot_1 = telebot.TeleBot(TELEGRAM_TOKEN)
 
-def Test():
+def Test(message):
 #    page = network.get_page_confirm(misc.URL)
 #    items = parser.get_content(page)
-    bot.sendmessagebot("hi")
+    bot.sendmessagebot(message)
 
 ######################
 #   start
@@ -82,7 +82,10 @@ def autoria():
     items = request.args.to_dict()
 
     category = request.args.get("category")  # - 1
+    if category != 1:
+        return "Eror category. !=1"
     fuel = request.args.get("fuel")  # - 2
+    if fuel
     origin = request.args.get("origin")  # - 3
     age = request.args.get("age")  # - 4
     price = request.args.get("price")  # - 5
@@ -100,28 +103,16 @@ def autoria():
     req = misc.GENERAL_REQUEST +"category=" +str(mass["category"]) +"&fuel=" +str(mass["fuel"]) +"&origin=" +str(mass["origin"]) +"&age=" +str(mass["age"]) +"&price=" +str(mass["price"]) +"&engine=" +str(mass["engine"])
     print(req)
     resp = network.get_page_confirm(req)
-    return resp.text
-# https://auto.ria.com/content/news/calculateAuto/?category=1&fuel=1&origin=3&age=gt15&price=5000&engine=6000
-# https://telegram-bot-pyhon-test0001.herokuapp.com/autoria?category=1&fuel=1&origin=3&age=gt15&price=5000&engine=6000&currencyId=2&langId=2
-# https://auto.ria.com/content/news/calculateAuto/         ?category=1&fuel=1&origin=3&age=gt15&price=5000&engine=6000
-# https://auto.ria.com/content/news/calculateAuto/?category=1&fuel=1&origin=3&age=None&price=5000&engine=6000
-# https://auto.ria.com/content/news/calculateAuto/?category=1&fuel=1&origin=3&age=lt1&price=3500&engine=2000&currencyId=2&langId=2
-# https://auto.ria.com/content/news/calculateAuto/?category=1&fuel=1&origin=3&age=lt1&price=5000&engine=6000
-# https://auto.ria.com/content/news/calculateAuto/?category=1&fuel=1&origin=3&age=gt15&price=5000&engine=6000
+    return resp.text["oldPrices"]
 
 # https://auto.ria.com/content/news/calculateAuto/?
 # category=1    // категория автотранспорта (точно) 1- автомобили 2- мотоциклы
-# &fuel=1       // топливо
-# &origin=3     // страна происхождения
-# &age=gt15     // возраст машины
-# &price=5000   // цена зарубедом
+# &fuel=1       // топливо (точно) 1- бензин 2- дизель 6- электро 5- гибрид
+# &origin=3     // страна происхождения (точно) 1- другие 2- ЕАСТ 3- ЕС 4- канада
+# &age=gt15     // возраст машины lt1 - lt14 - от 1 до 14ти | gt15 от 15ти и более
+# &price=5000   // цена зарубедом от 100
 # &engine=6000  // объём двигателя
 
-# &currencyId=2
-# &langId=2     // язык 2- русский 4- укр
-#####################################################################
-# https://telegram-bot-pyhon-test0001.herokuapp.com/autoria?category=1&fuel=1&origin=3&age=gt15&price=5000&engine=6000&currencyId=2&langId=2
-#####################################################################
 #    return'''
 # категория -------------------------------------- {}<br>
 # топливо ---------------------------------------- {}<br>
@@ -144,13 +135,6 @@ def autoria():
 def main():
     print("Start APP!")
     server.run(host = "0.0.0.0", port = int(os.environ.get("PORT", 5000)))
-
-#    items = bot.autoria()
-#    filesystem.jinfile(items, "autoria.json")
-#    for item in items["oldPrices"]:
-#        print(item)
-
-#    bot.RunRunFastUCan()
 
 ##########################################################################
 if __name__ == "__main__":
