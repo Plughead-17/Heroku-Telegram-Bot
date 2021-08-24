@@ -85,7 +85,7 @@ def autoria():
     if category != 1:
         return "Eror category. !=1"
     fuel = request.args.get("fuel")  # - 2
-    if fuel
+
     origin = request.args.get("origin")  # - 3
     age = request.args.get("age")  # - 4
     price = request.args.get("price")  # - 5
@@ -103,7 +103,8 @@ def autoria():
     req = misc.GENERAL_REQUEST +"category=" +str(mass["category"]) +"&fuel=" +str(mass["fuel"]) +"&origin=" +str(mass["origin"]) +"&age=" +str(mass["age"]) +"&price=" +str(mass["price"]) +"&engine=" +str(mass["engine"])
     print(req)
     resp = network.get_page_confirm(req)
-    return resp.json()
+    return resp.text["oldPrices"]
+
 
 # https://auto.ria.com/content/news/calculateAuto/?
 # category=1    // категория автотранспорта (точно) 1- автомобили 2- мотоциклы
