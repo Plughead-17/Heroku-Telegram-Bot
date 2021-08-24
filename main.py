@@ -87,11 +87,19 @@ def autoria():
 
 # &currencyId=2
 # &langId=2     // язык 2- русский 4- укр
+    print(str(request.args.to_dict()))
+#    "category": request.args.get("category"),  # - 1
+#    "fuel": request.args.get("fuel"),  # - 2
+#    "origin": request.args.get("origin"),  # - 3
+#    "age": request.args.get("agee"),  # - 4
+#    "price": request.args.get("price"),  # - 5
+#    "engine": request.args.get("engine")  # - 6
+
     mass = ({
         "category": request.args.get("category"),           # - 1
         "fuel": request.args.get("fuel"),                   # - 2
         "origin": request.args.get("origin"),               # - 3
-        "age": request.args.get("age"),                     # - 4
+        "age": request.args.get("agee"),                     # - 4
         "price": request.args.get("price"),                 # - 5
         "engine": request.args.get("engine")                # - 6
     })
