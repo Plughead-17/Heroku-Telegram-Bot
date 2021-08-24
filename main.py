@@ -107,7 +107,7 @@ def autoria():
     resp = resp.json()
     print(resp["oldPrices"])
     print("-----------------------")
-    return resp["oldPrices"]
+    return resp
 
 
 # https://auto.ria.com/content/news/calculateAuto/?
