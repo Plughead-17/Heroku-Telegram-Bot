@@ -101,6 +101,7 @@ def autoria():
     req = misc.GENERAL_REQUEST +"category=" +str(mass["category"]) +"&fuel=" +str(mass["fuel"]) +"&origin=" +str(mass["origin"]) +"&age=" +str(mass["age"]) +"&price=" +str(mass["price"]) +"&engine=" +str(mass["engine"])
     print(req)
     resp = network.get_page_confirm(req)
+    print(resp.text["oldPrices"])
     return resp.text["oldPrices"]
 
 
