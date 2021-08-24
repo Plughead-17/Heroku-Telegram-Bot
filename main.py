@@ -9,7 +9,7 @@ from flask import Flask, request, render_template
 server = Flask(__name__)
 
 TELEGRAM_TOKEN = "1822171895:AAGizcD8jcNdWrKgAmKhzSsqUZyo-n07kEU"
-URL_APP = "https://telegram-bot-pyhon-test0001.herokuapp.com/"  + TELEGRAM_TOKEN
+URL_APP = "https://telegram-bot-pyhon-test0001.herokuapp.com/"
 
 bot_1 = telebot.TeleBot(TELEGRAM_TOKEN)
 
@@ -76,15 +76,38 @@ def onliner():
 
 @server.route("/autoria")
 def autoria():
-    temp = bot.autoria()
-    return '''
-    Ввозная пошлина --------- {}<br>
-    акцизный сбор ----------- {}<br>
-    НДС --------------------- {}<br>
-    Стоимость зарубежом ----- {}<br>
-    Растаможка -------------- {}<br>
-    Стоимость с разтоможкой - {}<br>
-    '''.format(temp["oldPrices"]["importDuty"],temp["oldPrices"]["exciseDuty"],temp["oldPrices"]["VAT"],temp["oldPrices"]["bondedCarCost"],temp["oldPrices"]["customsClearanceCosts"],temp["oldPrices"]["clearedCarsCost"])
+
+# https://auto.ria.com/content/news/calculateAuto/?
+# category=1    // категория автотранспорта (точно) 1- автомобили 2- мотоциклы
+# &fuel=1       // топливо
+# &origin=3     // страна происхождения
+# &age=gt15     // возраст машины
+# &price=5000   // цена зарубедом
+# &engine=6000  // объём двигателя
+
+# &currencyId=2
+# &langId=2     // язык 2- русский 4- укр
+    mass = ({
+        "category": request.args.get("category"),           # - 1
+        "fuel": request.args.get("fuel"),                   # - 2
+        "origin": request.args.get("origin"),               # - 3
+        "age": request.args.get("age"),                     # - 4
+        "price": request.args.get("price"),                 # - 5
+        "engine": request.args.get("engine")                # - 6
+    })
+    for item in mass:
+        print(str(item))
+
+
+# https://telegram-bot-pyhon-test0001.herokuapp.com/autoria?category=1&fuel=1&origin=3&age=gt15&price=5000&engine=6000&currencyId=2&langId=2
+    return'''
+категория -------------------------------------- {}<br>
+топливо ---------------------------------------- {}<br>
+страна происхождения --------------------- {}<br>
+возраст машины ----------------------------- {}<br>
+цена зарубедом ------------------------------- {}<br>
+объём двигателя ----------------------------- {}<br>
+'''.format(mass["category"], mass["fuel"], mass["origin"], mass["age"], mass["price"], mass["engine"])
 
 #1    "oldPrices": {
 #2    "importDuty": 275,		// Ввозная пошлина
