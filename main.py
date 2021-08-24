@@ -82,8 +82,6 @@ def autoria():
     items = request.args.to_dict()
 
     category = request.args.get("category")  # - 1
-    if category != 1:
-        return "Eror category. !=1"
     fuel = request.args.get("fuel")  # - 2
 
     origin = request.args.get("origin")  # - 3
