@@ -104,7 +104,8 @@ def autoria():
     print("-----------------------")
     resp = network.get_page_confirm(req)
     print("-----------------------")
-    print(resp.text["oldPrices"])
+    resp = resp.json()
+    print(resp["oldPrices"])
     print("-----------------------")
     return resp.text["oldPrices"]
 
