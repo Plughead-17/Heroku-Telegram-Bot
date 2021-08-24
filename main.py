@@ -87,7 +87,9 @@ def autoria():
 
 # &currencyId=2
 # &langId=2     // язык 2- русский 4- укр
-    print(str(request.args.to_dict()))
+
+    items = request.args.to_dict()
+
 #    "category": request.args.get("category"),  # - 1
 #    "fuel": request.args.get("fuel"),  # - 2
 #    "origin": request.args.get("origin"),  # - 3
@@ -103,9 +105,10 @@ def autoria():
         "price": request.args.get("price"),                 # - 5
         "engine": request.args.get("engine")                # - 6
     })
-    for item in mass:
+    for item in items:
+        print("----------")
         print(str(item))
-
+        print("----------")
 
 # https://telegram-bot-pyhon-test0001.herokuapp.com/autoria?category=1&fuel=1&origin=3&age=gt15&price=5000&engine=6000&currencyId=2&langId=2
     return'''
