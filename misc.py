@@ -6,6 +6,8 @@ TELEGRAM_TOKEN = "1822171895:AAGizcD8jcNdWrKgAmKhzSsqUZyo-n07kEU"
 URL_APP = f"https://telegram-bot-pyhon-test0001.herokuapp.com/{TELEGRAM_TOKEN}"
 bad_symbols = "!@<>|\?"
 
+GENERAL_REQUEST = "https://auto.ria.com/content/news/calculateAuto/?"
+
 ###########################################################################
 REQUESTS_BOT = "https://api.telegram.org/bot" + TELEGRAM_TOKEN
 CHATID = "841721020"

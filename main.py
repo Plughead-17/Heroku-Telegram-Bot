@@ -77,6 +77,30 @@ def onliner():
 @server.route("/autoria")
 def autoria():
 
+
+    items = request.args.to_dict()
+
+    category = request.args.get("category")  # - 1
+    fuel = request.args.get("fuel")  # - 2
+    origin = request.args.get("origin")  # - 3
+    age = request.args.get("agee")  # - 4
+    price = request.args.get("price")  # - 5
+    engine = request.args.get("engine")  # - 6
+
+    mass = ({
+        "category": category,           # - 1
+        "fuel": fuel,                   # - 2
+        "origin": origin,               # - 3
+        "age": age,                     # - 4
+        "price": price,                 # - 5
+        "engine": engine                # - 6
+    })
+
+    req = misc.GENERAL_REQUEST +"category=" +str(mass["category"]) +"&fuel=" +str(mass["fuel"]) +"&origin=" +str(mass["origin"]) +"&age=" +str(mass["age"]) +"&price=" +str(mass["price"]) +"&engine=" +str(mass["engine"])
+    resp = network.get_page_confirm(req)
+    return resp
+
+
 # https://auto.ria.com/content/news/calculateAuto/?
 # category=1    // категория автотранспорта (точно) 1- автомобили 2- мотоциклы
 # &fuel=1       // топливо
@@ -87,30 +111,9 @@ def autoria():
 
 # &currencyId=2
 # &langId=2     // язык 2- русский 4- укр
-
-    items = request.args.to_dict()
-
-#    "category": request.args.get("category"),  # - 1
-#    "fuel": request.args.get("fuel"),  # - 2
-#    "origin": request.args.get("origin"),  # - 3
-#    "age": request.args.get("agee"),  # - 4
-#    "price": request.args.get("price"),  # - 5
-#    "engine": request.args.get("engine")  # - 6
-
-    mass = ({
-        "category": request.args.get("category"),           # - 1
-        "fuel": request.args.get("fuel"),                   # - 2
-        "origin": request.args.get("origin"),               # - 3
-        "age": request.args.get("agee"),                     # - 4
-        "price": request.args.get("price"),                 # - 5
-        "engine": request.args.get("engine")                # - 6
-    })
-    for item in items:
-        print("----------")
-        print(str(item))
-        print("----------")
-    return items
+#####################################################################
 # https://telegram-bot-pyhon-test0001.herokuapp.com/autoria?category=1&fuel=1&origin=3&age=gt15&price=5000&engine=6000&currencyId=2&langId=2
+#####################################################################
 #    return'''
 # категория -------------------------------------- {}<br>
 # топливо ---------------------------------------- {}<br>
