@@ -100,11 +100,14 @@ def autoria():
     req = misc.GENERAL_REQUEST +"category=" +str(mass["category"]) +"&fuel=" +str(mass["fuel"]) +"&origin=" +str(mass["origin"]) +"&age=" +str(mass["age"]) +"&price=" +str(mass["price"]) +"&engine=" +str(mass["engine"])
     print(req)
     resp = network.get_page_confirm(req)
-    return resp
+    return resp.text
+# https://auto.ria.com/content/news/calculateAuto/?category=1&fuel=1&origin=3&age=gt15&price=5000&engine=6000
 # https://telegram-bot-pyhon-test0001.herokuapp.com/autoria?category=1&fuel=1&origin=3&age=gt15&price=5000&engine=6000&currencyId=2&langId=2
 # https://auto.ria.com/content/news/calculateAuto/         ?category=1&fuel=1&origin=3&age=gt15&price=5000&engine=6000
 # https://auto.ria.com/content/news/calculateAuto/?category=1&fuel=1&origin=3&age=None&price=5000&engine=6000
 # https://auto.ria.com/content/news/calculateAuto/?category=1&fuel=1&origin=3&age=lt1&price=3500&engine=2000&currencyId=2&langId=2
+# https://auto.ria.com/content/news/calculateAuto/?category=1&fuel=1&origin=3&age=lt1&price=5000&engine=6000
+# https://auto.ria.com/content/news/calculateAuto/?category=1&fuel=1&origin=3&age=gt15&price=5000&engine=6000
 
 # https://auto.ria.com/content/news/calculateAuto/?
 # category=1    // категория автотранспорта (точно) 1- автомобили 2- мотоциклы
