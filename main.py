@@ -75,7 +75,7 @@ def auto():
     items = request.args.to_dict()
     print("______________________")
     print(items)
-    return
+    return '|', 200
 
 def autoria():
 
