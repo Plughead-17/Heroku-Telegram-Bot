@@ -66,16 +66,16 @@ def test():
                     Покупка = {}<br>
                     '''.format(ms[0], ms[1], ms[2])
 
-#@server.route('/')
-#def hello_world():
-#    print("\n\n\n\ndef hello_world():\n\n\n")
-#    return render_template('index.html')
-
 @server.route("/onliner")
 def onliner():
     return bot.onliner_parce()
 
 @server.route("/autoria")
+def auto():
+    items = request.args.to_dict()
+    print(items)
+    return
+
 def autoria():
 
 
@@ -108,7 +108,6 @@ def autoria():
     print(resp["oldPrices"])
     print("-----------------------")
     return resp
-
 
 # https://auto.ria.com/content/news/calculateAuto/?
 # category=1    // категория автотранспорта (точно) 1- автомобили 2- мотоциклы
@@ -145,5 +144,13 @@ def main():
 if __name__ == "__main__":
     main() # - action
 
+# __5 параметров
+# Вид топлива           (gas, dis, el, gib)
+# Страна происхождения  (other, eact, ec, can)
+# Год выпуска           (любое число)
+# Изначальная стоимость (любое число)
+# объём двигателя       (любое число)
+originList = ["all", "EABT", "ES", "CANADA"]
 
+fuelsList = ["Benzin", "Diesel", "Electro", "Hybrid"]
 
