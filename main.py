@@ -73,6 +73,7 @@ def onliner():
 @server.route("/autoria")
 def auto():
     items = request.args.to_dict()
+    print("______________________")
     print(items)
     return
 
