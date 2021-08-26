@@ -4,10 +4,10 @@ import misc
 import network
 import telebot
 import os
+import time
 from flask import Flask, request, render_template
 
 server = Flask(__name__)
-
 TELEGRAM_TOKEN = "1822171895:AAGizcD8jcNdWrKgAmKhzSsqUZyo-n07kEU"
 URL_APP = "https://telegram-bot-pyhon-test0001.herokuapp.com/"
 
@@ -75,7 +75,9 @@ def auto():
     items = request.args.to_dict()
     print("______________________")
     print(items)
-
+    print("______________________")
+    print(time.localtime())
+    print("______________________")
     for item in items:
         print(item)
 
