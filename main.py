@@ -75,6 +75,10 @@ def auto():
     items = request.args.to_dict()
     print("______________________")
     print(items)
+
+    for item in items:
+        print(item)
+
     return '|', 200
 
 def autoria():
@@ -151,7 +155,5 @@ if __name__ == "__main__":
 # Год выпуска           (любое число)
 # Изначальная стоимость (любое число)
 # объём двигателя       (любое число)
-originList = ["all", "EABT", "ES", "CANADA"]
 
-fuelsList = ["Benzin", "Diesel", "Electro", "Hybrid"]
-
+# /autoria?gas&other&2003&20000&3000&end
