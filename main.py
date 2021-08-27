@@ -79,7 +79,7 @@ def auto():
 
     mass = []
     for item in items:
-        mass.append(item)
+        mass.append(str(item))
     print("category")
     category = str(mass[0])
     print("fuel")
@@ -87,6 +87,7 @@ def auto():
     print("origin")
     origin = str(mass[2])
     print("age")
+    print(mass[3])
     age = mass[3]
     print("TEST age")
     print(age)
