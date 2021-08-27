@@ -80,21 +80,27 @@ def auto():
     mass = []
     for item in items:
         mass.append(item)
-
+    print("category")
     category = str(mass[0])
+    print("fuel")
     fuel = str(mass[1])
+    print("origin")
     origin = str(mass[2])
-    age = yer - mass[3]
+    print("age")
+    age = yer - int(mass[3])
+    print("if age")
     if age >= 15:
         age = "gt15"
+        print("age = gt15")
     else:
         age = "lt" + str(age)
-
+        print("age = 'lt' + str(age)")
     price = str(mass[4])
+    print("price")
     engine = str(mass[5])
 
     req = misc.GENERAL_REQUEST +"category=" +category +"&fuel=" +fuel +"&origin=" +origin +"&age=" +age +"&price=" +price +"&engine=" +engine
-# /autoria?1&1&1?3000?3000
+# /autoria?1&1&1&2005&3000?3000
 #           1       2       3   4   5       6
 # /autoria?category&fuel&origin&age&price&engine
 # post = /autoria?1&gas&other&2003&20000&3000
