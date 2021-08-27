@@ -77,18 +77,37 @@ def auto():
     items = request.args.to_dict()
     print("______________________")
 
-    print("______________________")
-
     mass = []
     for item in items:
         mass.append(item)
-        print(item)
 
-    print("______________________")
-    print(mass)
-    print("______________________")
-    return '|', 200
+    category = str(mass[0])
+    fuel = str(mass[1])
+    origin = str(mass[2])
+    age = yer - mass[3]
+    if age >= 15:
+        age = "gt15"
+    else:
+        age = "lt" + str(age)
+
+    price = str(mass[4])
+    engine = str(mass[5])
+
+    req = misc.GENERAL_REQUEST +"category=" +category +"&fuel=" +fuel +"&origin=" +origin +"&age=" +age +"&price=" +price +"&engine=" +engine
+# /autoria?1&1&1?3000?3000
+#           1       2       3   4   5       6
+# /autoria?category&fuel&origin&age&price&engine
+# post = /autoria?1&gas&other&2003&20000&3000
+
+    print("-----------------------")
+    print(req)
+    print("-----------------------")
+    resp = network.get_html(req)
+    resp = resp.json()
+    return resp, 200
+
 #####################################
+#
 def autoria():
 
     items = request.args.to_dict()
@@ -120,13 +139,23 @@ def autoria():
     print(resp["oldPrices"])
     print("-----------------------")
     return resp
+# входной
+
+# category=1    // категория автотранспорта (точно) 1- автомобили 2- мотоциклы
+# &fuel=1       // топливо (точно) 1- бензин 2- дизель 6- электро 5- гибрид
+# &origin=3     // страна происхождения (точно) 1- другие 2- ЕАСТ 3- ЕС 4- канада
+# &age=gt15     // возраст машины lt1 - lt14 - от 1 до 14ти | gt15 от 15ти и более
+# &price=5000   // цена зарубедом от 100
+# &engine=6000  // объём двигателя
+
+# выходной
 
 # https://auto.ria.com/content/news/calculateAuto/?
 # category=1    // категория автотранспорта (точно) 1- автомобили 2- мотоциклы
 # &fuel=1       // топливо (точно) 1- бензин 2- дизель 6- электро 5- гибрид
 # &origin=3     // страна происхождения (точно) 1- другие 2- ЕАСТ 3- ЕС 4- канада
 # &age=gt15     // возраст машины lt1 - lt14 - от 1 до 14ти | gt15 от 15ти и более
-# &price=5000   // цена зарубедом от 100
+# &price=5000   // цена зарубежом от 100
 # &engine=6000  // объём двигателя
 
 #    return'''
