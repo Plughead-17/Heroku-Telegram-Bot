@@ -89,8 +89,6 @@ def auto():
     print("______________________")
     print(items)
     print("______________________")
-    print(time.localtime())
-    print("______________________")
     for item in items:
         print(item)
 
