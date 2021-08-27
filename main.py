@@ -76,7 +76,7 @@ def auto():
 
     items = request.args.items()
     print("______________________")
-    print(len(items))
+    print(items)
     print("______________________")
 
     for item in items:
