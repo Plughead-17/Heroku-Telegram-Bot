@@ -76,9 +76,10 @@ def auto():
 
     items = request.args.to_dict()
     print("______________________")
-
+    print(items)
     mass = []
     for item in items:
+        print(item)
         mass.append(str(item))
     print("category")
     category = mass[0]
