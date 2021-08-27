@@ -77,23 +77,16 @@ def auto():
     items = request.args.to_dict()
     print("______________________")
 
-    print("+++++++++++++++++++++++++++")
-    items = ["item1", "item2", "item3", "item4", "item5", "item6", "item7", "item8"]
-    i = len(items) - 1
-    while i >= 0:
-        print(i, ' ', items[i])
-        i -= 1
-
-#    i = len(items)
-#    while i >= 0:
-#        print(items[i])
-#        i -= 1
-
     print("______________________")
 
-#    for item in items:
-#        print(item)
+    mass = []
+    for item in items:
+        mass.append(item)
+        print(item)
 
+    print("______________________")
+    print(mass)
+    print("______________________")
     return '|', 200
 #####################################
 def autoria():
