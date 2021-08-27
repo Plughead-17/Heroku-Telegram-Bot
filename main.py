@@ -87,7 +87,8 @@ def auto():
     print("origin")
     origin = str(mass[2])
     print("age")
-    print(mass[3])
+    print("______________________")
+    print(str(mass[3]))
     age = mass[3]
     print("TEST age")
     print(age)
