@@ -76,11 +76,15 @@ def auto():
 
     items = request.args.keys()
     print("______________________")
-    print(items)
+    i = len(items)
+    while i >= 0:
+        print(items[i])
+        i -= 1
+
     print("______________________")
 
-    for item in items:
-        print(item)
+#    for item in items:
+#        print(item)
 
     return '|', 200
 #####################################
