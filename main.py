@@ -74,7 +74,7 @@ def onliner():
 def auto():
     yer = int(time.asctime()[-4:])
 
-    items = request.json()
+    items = request.args.values()
     print("______________________")
     print(items)
     mass = []
