@@ -87,7 +87,12 @@ def auto():
     print("origin")
     origin = str(mass[2])
     print("age")
-    age = yer - mass[3]
+    age = mass[3]
+    print("TEST age")
+    print(age)
+    print("TEST yer")
+    print(yer)
+    age = yer - age
     print("if age")
     if age >= 15:
         age = "gt15"
