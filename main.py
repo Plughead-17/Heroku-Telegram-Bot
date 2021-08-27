@@ -76,10 +76,18 @@ def auto():
 
     items = request.args.to_dict()
     print("______________________")
-    i = len(items)
+
+    print("+++++++++++++++++++++++++++")
+    items = ["item1", "item2", "item3", "item4", "item5", "item6", "item7", "item8"]
+    i = len(items) - 1
     while i >= 0:
-        print(items[i])
+        print(i, ' ', items[i])
         i -= 1
+
+#    i = len(items)
+#    while i >= 0:
+#        print(items[i])
+#        i -= 1
 
     print("______________________")
 
