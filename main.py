@@ -72,7 +72,20 @@ def onliner():
 
 @server.route("/autoria")
 def auto():
-    items = request.args.to_dict()
+    temp = time.asctime()
+    print("______________________")
+    print(temp)
+    print("______________________")
+    print(temp[-4:])
+    yer = int(temp[-4:])
+    yer -= 1999
+    print("______________________")
+    print(yer)
+    print("______________________")
+
+
+
+    items = request.args.items()
     print("______________________")
     print(items)
     print("______________________")
@@ -84,7 +97,6 @@ def auto():
     return '|', 200
 
 def autoria():
-
 
     items = request.args.to_dict()
 
