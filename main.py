@@ -80,7 +80,6 @@ def auto():
     print("______________________")
 
     for item in items:
-
         print(item)
 
     return '|', 200
