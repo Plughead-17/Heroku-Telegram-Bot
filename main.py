@@ -74,7 +74,7 @@ def onliner():
 def auto():
     yer = int(time.asctime()[-4:])
 
-    items = request.args.items()
+    items = request.args.lists()
     print("______________________")
     print(items)
     print("______________________")
@@ -83,7 +83,7 @@ def auto():
         print(item)
 
     return '|', 200
-
+#####################################
 def autoria():
 
     items = request.args.to_dict()
