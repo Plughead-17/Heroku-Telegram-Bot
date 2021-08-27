@@ -81,20 +81,20 @@ def auto():
     for item in items:
         mass.append(str(item))
     print("category")
-    category = str(mass[0])
+    category = mass[0]
     print("fuel")
-    fuel = str(mass[1])
+    fuel = mass[1]
     print("origin")
-    origin = str(mass[2])
+    origin = mass[2]
     print("age")
     print("______________________")
-    print(str(mass[3]))
+    print(mass[3])
     age = mass[3]
     print("TEST age")
     print(age)
     print("TEST yer")
     print(yer)
-    age = yer - age
+    age = yer - int(age)
     print("if age")
     if age >= 15:
         age = "gt15"
