@@ -74,7 +74,7 @@ def onliner():
 def auto():
     yer = int(time.asctime()[-4:])
 
-    items = request.args.keys()
+    items = request.args.values()
     print("______________________")
     print(items)
 
