@@ -82,7 +82,6 @@ def auto():
     category = mass[0]
     fuel = mass[1]
     origin = mass[2]
-    print(mass[3])
     age = mass[3]
     age = yer - int(age)
     if age >= 15:
@@ -93,10 +92,6 @@ def auto():
     engine = str(mass[5])
 
     req = misc.GENERAL_REQUEST +"category=" +category +"&fuel=" +fuel +"&origin=" +origin +"&age=" +age +"&price=" +price +"&engine=" +engine
-# /autoria?1&1&1&2005&3000?3000
-#           1       2       3   4   5       6
-# /autoria?category&fuel&origin&age&price&engine
-# post = /autoria?1&gas&other&2003&20000&3000
 
     print("-----------------------")
     print(req)
@@ -104,40 +99,7 @@ def auto():
     resp = network.get_html(req)
     resp = resp.json()["newPrices"]
     return resp
-# https://custom-trader.herokuapp.com/autoria?ag1=1&ag2=1&ag3=1&ag4=2003&ag5=2003&ag6=2003
-#####################################
-#
-def autoria():
 
-    items = request.args.to_dict()
-
-    category = request.args.get("category")  # - 1
-    fuel = request.args.get("fuel")  # - 2
-
-    origin = request.args.get("origin")  # - 3
-    age = request.args.get("age")  # - 4
-    price = request.args.get("price")  # - 5
-    engine = request.args.get("engine")  # - 6
-
-    mass = ({
-        "category": category,           # - 1
-        "fuel": fuel,                   # - 2
-        "origin": origin,               # - 3
-        "age": age,                     # - 4
-        "price": price,                 # - 5
-        "engine": engine                # - 6
-    })
-
-    req = misc.GENERAL_REQUEST +"category=" +str(mass["category"]) +"&fuel=" +str(mass["fuel"]) +"&origin=" +str(mass["origin"]) +"&age=" +str(mass["age"]) +"&price=" +str(mass["price"]) +"&engine=" +str(mass["engine"])
-    print("-----------------------")
-    print(req)
-    print("-----------------------")
-    resp = network.get_page_confirm(req)
-    print("-----------------------")
-    resp = resp.json()
-    print(resp["oldPrices"])
-    print("-----------------------")
-    return resp
 # входной
 
 # category=1    // категория автотранспорта (точно) 1- автомобили 2- мотоциклы
@@ -160,19 +122,18 @@ def autoria():
 #    return'''
 # категория -------------------------------------- {}<br>
 # топливо ---------------------------------------- {}<br>
-# страна происхождения --------------------- {}<br>
-# возраст машины ----------------------------- {}<br>
-# цена зарубедом ------------------------------- {}<br>
-# объём двигателя ----------------------------- {}<br>
+# страна происхождения --------------------------- {}<br>
+# возраст машины --------------------------------- {}<br>
+# цена зарубедом --------------------------------- {}<br>
+# объём двигателя -------------------------------- {}<br>
 # '''.format(mass["category"], mass["fuel"], mass["origin"], mass["age"], mass["price"], mass["engine"])
 
-#1    "oldPrices": {
-#2    "importDuty": 275,		// Ввозная пошлина
-#3    "exciseDuty": 9000,	// акцизный сбор
-#4    "VAT": 2855,		// НДС
-#5    "bondedCarCost": 5000,	// Стоимость зарубежом
-#6    "customsClearanceCosts": 12130,	// Растаможка
-#7    "clearedCarsCost": 17130	// Стоимость с разтоможкой
+#1    "importDuty": 275,		        // Ввозная пошлина
+#2    "exciseDuty": 9000,	            // акцизный сбор
+#3    "VAT": 2855,		                // НДС
+#4    "bondedCarCost": 5000,	        // Стоимость зарубежом
+#5    "customsClearanceCosts": 12130,	// Растаможка
+#6    "clearedCarsCost": 17130	        // Стоимость с разтоможкой
 
 ##########################################################################
 #       Main
