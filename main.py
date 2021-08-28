@@ -75,38 +75,21 @@ def auto():
     yer = int(time.asctime()[-4:])
 
     items = request.args.values()
-    print("______________________")
-    print(items)
-
     mass = []
     for item in items:
-        print(item)
         mass.append(str(item))
 
-    print("category")
     category = mass[0]
-    print("fuel")
     fuel = mass[1]
-    print("origin")
     origin = mass[2]
-    print("age")
-    print("______________________")
     print(mass[3])
     age = mass[3]
-    print("TEST age")
-    print(age)
-    print("TEST yer")
-    print(yer)
     age = yer - int(age)
-    print("if age")
     if age >= 15:
         age = "gt15"
-        print("age = gt15")
     else:
         age = "lt" + str(age)
-        print("age = 'lt' + str(age)")
     price = str(mass[4])
-    print("price")
     engine = str(mass[5])
 
     req = misc.GENERAL_REQUEST +"category=" +category +"&fuel=" +fuel +"&origin=" +origin +"&age=" +age +"&price=" +price +"&engine=" +engine
@@ -120,8 +103,8 @@ def auto():
     print("-----------------------")
     resp = network.get_html(req)
     resp = resp.json()["newPrices"]
-    return resp, 200
-
+    return resp
+# https://custom-trader.herokuapp.com/autoria?ag1=1&ag2=1&ag3=1&ag4=2003&ag5=2003&ag6=2003
 #####################################
 #
 def autoria():
