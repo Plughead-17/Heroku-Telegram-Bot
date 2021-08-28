@@ -119,7 +119,7 @@ def auto():
     print(req)
     print("-----------------------")
     resp = network.get_html(req)
-    resp = resp.json()
+    resp = resp.json()["newPrices"]
     return resp, 200
 
 #####################################
