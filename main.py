@@ -74,13 +74,15 @@ def onliner():
 def auto():
     yer = int(time.asctime()[-4:])
 
-    items = request.args.values()
+    items = request.args.keys()
     print("______________________")
     print(items)
+
     mass = []
     for item in items:
         print(item)
         mass.append(str(item))
+
     print("category")
     category = mass[0]
     print("fuel")
