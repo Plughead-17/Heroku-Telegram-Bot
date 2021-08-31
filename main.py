@@ -77,16 +77,16 @@ def autoria():
     yer = int(time.asctime()[-4:])
 
 
-
     items = request.args.values()
     print("---------------------\nКоличество параметров")
+
+    print(type(items))
 
     mass = []
     for item in items:
         if item == '':
-            print("test\n")
-        else:
-            print("valid")
+            return ''' Error! NO parameter '''
+
         mass.append(str(item))
 
     print(str(len(mass)))
