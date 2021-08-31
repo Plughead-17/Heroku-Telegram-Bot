@@ -83,9 +83,9 @@ def autoria():
 
     mass = []
     for item in items:
-        if item <= 1:
+        mass.append(str(item))
+        if item < 1:
             print("---------------\nZERRO\n")
-            mass.append(str(item))
         else:
             return ''' Error keys '''
 
