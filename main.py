@@ -83,10 +83,14 @@ def autoria():
 
     mass = []
     for item in items:
-        if item == 0:
+        if item <= 1:
             print("---------------\nZERRO\n")
+            mass.append(str(item))
+        else:
+            return ''' Error keys '''
+
         print(item)
-        mass.append(str(item))
+
     print(str(len(mass)))
     category = mass[0]
     fuel = mass[1]
