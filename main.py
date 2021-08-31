@@ -83,6 +83,7 @@ def autoria():
 
     mass = []
     for item in items:
+        print(item)
         mass.append(str(item))
     print(str(len(mass)))
     category = mass[0]
