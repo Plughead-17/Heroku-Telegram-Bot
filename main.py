@@ -83,8 +83,10 @@ def autoria():
 
     mass = []
     for item in items:
-        if item == False:
+        if item == '':
             print("test\n")
+        else:
+            print("valid")
         mass.append(str(item))
 
     print(str(len(mass)))
