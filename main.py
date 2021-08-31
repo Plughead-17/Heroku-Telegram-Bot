@@ -83,13 +83,9 @@ def autoria():
 
     mass = []
     for item in items:
+        if item == False:
+            print("test\n")
         mass.append(str(item))
-        if int(item) >= 1:
-            print("---------------\nZERRO\n")
-        else:
-            return ''' Error keys '''
-
-        print(item)
 
     print(str(len(mass)))
     category = mass[0]
