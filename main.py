@@ -122,6 +122,9 @@ def auto():
     items = request.args.values()
     mass = []
     for item in items:
+        if item == '':
+            return ''' Error! NO parameter '''
+
         mass.append(str(item))
 
     category = mass[0]
