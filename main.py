@@ -6,10 +6,10 @@ import telebot
 import os
 import time
 from flask import Flask, request, render_template
-from flask_cors import CORS
+#from flask_cors import CORS
 
 server = Flask(__name__)
-CORS(server)
+#CORS(server)
 TELEGRAM_TOKEN = "1822171895:AAGizcD8jcNdWrKgAmKhzSsqUZyo-n07kEU"
 URL_APP = "https://telegram-bot-pyhon-test0001.herokuapp.com/"
 
