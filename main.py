@@ -72,8 +72,44 @@ def test():
 def onliner():
     return bot.onliner_parce()
 
+@server.route("/te")
+def autoria():
+    yer = int(time.asctime()[-4:])
+
+
+
+    items = request.args.values()
+    print("---------------------\nКоличество параметров")
+    print(str(len(items)))
+    mass = []
+    for item in items:
+        mass.append(str(item))
+
+    category = mass[0]
+    fuel = mass[1]
+    origin = mass[2]
+    age = mass[3]
+    age = yer - int(age)
+    if age >= 15:
+        age = "gt15"
+    else:
+        age = "lt" + str(age)
+    price = str(mass[4])
+    engine = str(mass[5])
+
+    req = misc.GENERAL_REQUEST +"category=" +category +"&fuel=" +fuel +"&origin=" +origin +"&age=" +age +"&price=" +price +"&engine=" +engine
+
+    print("-----------------------")
+    print(req)
+    print("-----------------------")
+    resp = network.get_html(req)
+    resp = resp.json()["newPrices"]
+    return resp
+
+
 @server.route("/autoria")
 def auto():
+
     yer = int(time.asctime()[-4:])
 
     items = request.args.values()
