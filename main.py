@@ -84,7 +84,7 @@ def autoria():
     mass = []
     for item in items:
         mass.append(str(item))
-        if int(item) < 1:
+        if int(item) >= 1:
             print("---------------\nZERRO\n")
         else:
             return ''' Error keys '''
@@ -97,10 +97,12 @@ def autoria():
     origin = mass[2]
     age = mass[3]
     age = yer - int(age)
+
     if age >= 15:
         age = "gt15"
     else:
         age = "lt" + str(age)
+
     price = str(mass[4])
     engine = str(mass[5])
 
