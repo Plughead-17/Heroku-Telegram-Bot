@@ -80,11 +80,11 @@ def autoria():
 
     items = request.args.values()
     print("---------------------\nКоличество параметров")
-    print(str(len(items)))
+
     mass = []
     for item in items:
         mass.append(str(item))
-
+    print(str(len(mass)))
     category = mass[0]
     fuel = mass[1]
     origin = mass[2]
