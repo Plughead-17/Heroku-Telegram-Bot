@@ -83,6 +83,8 @@ def autoria():
 
     mass = []
     for item in items:
+        if item == 0:
+            print("---------------\nZERRO\n")
         print(item)
         mass.append(str(item))
     print(str(len(mass)))
