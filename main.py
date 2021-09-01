@@ -6,7 +6,7 @@ import telebot
 import os
 import time
 from flask import Flask, request, render_template
-#from flask_cors import CORS
+from flask_cors import CORS, cross_origin
 
 server = Flask(__name__)
 #CORS(server)
@@ -73,6 +73,7 @@ def onliner():
     return bot.onliner_parce()
 
 @server.route("/te")
+@cross_origin()
 def autoria():
     yer = int(time.asctime()[-4:])
 
