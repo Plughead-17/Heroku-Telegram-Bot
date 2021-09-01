@@ -116,6 +116,7 @@ def autoria():
 
 
 @server.route("/autoria")
+@cross_origin()
 def auto():
 
     yer = int(time.asctime()[-4:])
